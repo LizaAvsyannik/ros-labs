@@ -1,0 +1,23 @@
+digraph G {
+node [shape=box];
+"incorporeal" [label="incorporeal"];
+"ball" [label="ball"];
+"base" [label="base"];
+"vertical_axis" [label="vertical_axis"];
+"block" [label="block"];
+"horizontal_axis" [label="horizontal_axis"];
+"gripper" [label="gripper"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"incorporeal" -> "ball connection" [label="xyz: 0 -2 1 \nrpy: 0 -0 0"]
+"ball connection" -> "ball"
+"incorporeal" -> "immovable_connection" [label="xyz: 0 0 0.15 \nrpy: 0 -0 0"]
+"immovable_connection" -> "base"
+"base" -> "vertical_axis_movement" [label="xyz: 0 0 1.5 \nrpy: 0 -0 0"]
+"vertical_axis_movement" -> "vertical_axis"
+"vertical_axis" -> "vertical_block_movement" [label="xyz: 0.3 0 0.7 \nrpy: 0 -0 0"]
+"vertical_block_movement" -> "block"
+"block" -> "horizontal_axis_movement" [label="xyz: 0.3 0.4 0 \nrpy: 0 -0 0"]
+"horizontal_axis_movement" -> "horizontal_axis"
+"horizontal_axis" -> "gripper_connection" [label="xyz: -2.15 -0.4 0 \nrpy: 1.5708 -0 0"]
+"gripper_connection" -> "gripper"
+}

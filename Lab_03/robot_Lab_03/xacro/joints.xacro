@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="NAME_UNIT" >
+	<xacro:macro name="rec2rec_joint" params="parent_name child_name type rotation angle translateX translateY translateZ dirX dirY dirZ n">
+		<joint name="rec2rec_joint${n}" type="${type}">
+			<parent link="${parent_name}"/>
+			<child link="${child_name}"/>
+			<origin xyz="${translateX * dirX} ${translateY * dirY} ${translateZ * dirZ}" rpy="${angle}"/>
+			<axis xyz="${rotation}"/>
+			<limit lower="-6.3" upper="6.3" effort="100" velocity="5"/>	
+		</joint>
+	</xacro:macro>
+	<xacro:macro name="cyl2rec_joint" params="parent_name child_name translateX translateY translateZ dirX dirY dirZ n">
+		<joint name="cyl2rec_joint${n}" type="continuous">
+			<parent link="${parent_name}"/>
+			<child link="${child_name}"/>
+			<origin xyz="${translateX * dirX} ${translateY * dirY} ${translateZ*dirZ}" rpy=" 1.5708 0 0"/>
+			<axis xyz="0 0 1" />
+			<limit lower="-6.3" upper="6.3" effort="100" velocity="5"/>
+		</joint>
+	</xacro:macro>
+
+</robot>

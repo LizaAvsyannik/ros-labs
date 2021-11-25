@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="NAME_UNIT" >
+	<xacro:include filename= "gazebo.xacro"/>
+	<xacro:include filename="transmission.xacro"/>
+	<xacro:include filename="myrobot.urdf"/>
+
+	<gazebo>
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+		<robotNamespace>/MYROBOT</robotNamespace>	
+		</plugin>
+	</gazebo>
+	
+	<xacro:gazebo link_name="ball" mu1="0.2" mu2="0.2" kp="0" kd="0" COLOR="Red"/> 
+	<xacro:gazebo link_name="base" mu1="0.2" mu2="0.2" kp="0" kd="0" COLOR="Yellow"/>
+	<xacro:gazebo link_name="vertical_axis" mu1="0.2" mu2="0.2" kp="0" kd="0" COLOR="Green"/>
+	<xacro:gazebo link_name="block" mu1="0.2" mu2="0.2" kp="0" kd="0" COLOR="Blue"/>
+	<xacro:gazebo link_name="horizontal_axis" mu1="0.2" mu2="0.2" kp="0" kd="0" COLOR="Yellow"/>
+	<xacro:gazebo link_name="gripper" mu1="0.2" mu2="0.2" kp="0" kd="0" COLOR="Brown"/>
+
+	<xacro:transmission joint_name="vertical_axis_movement" md="1"/>
+	<xacro:transmission joint_name="vertical_block_movement" md="1"/>
+	<xacro:transmission joint_name="horizontal_axis_movement" md="1"/>
+
+	<gazebo>
+		<plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+			<robotNamespace>/MYROBOT</robotNamespace>
+			<updateRate>10.0</updateRate>
+			<alwaysOn>true</alwaysOn>
+		</plugin>
+	</gazebo>
+</robot>

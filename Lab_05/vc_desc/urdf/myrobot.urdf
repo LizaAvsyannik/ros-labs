@@ -1,0 +1,450 @@
+<?xml version="1.0"?>
+<robot name="vc_robot">
+
+<link name="world">
+</link>
+
+<link name="base">
+<visual>
+<origin xyz="0 0 0" rpy="0 0 0"/>
+<geometry>
+<cylinder length="0.4" radius="2.0"/>
+</geometry>
+<material name="blue">
+<color rgba="0 0 1 1"/>
+</material>
+</visual>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value ="10"/>
+<inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+</inertial>
+</link>
+
+<link name="main_wheel_axis">
+<visual>
+<origin xyz="0 0 0" rpy="1.5708 1.5708 0"/>
+<geometry>
+<cylinder length="3.9" radius="0.1"/>
+</geometry>
+<material name="green">
+<color rgba="0.0 1 0.0 1"/>
+</material>
+</visual>
+<inertial>
+<origin rpy="0 0 0" xyz="0 0 0"/>
+<mass value="5"/>
+<inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+</inertial>
+</link>
+
+<link name="support_wheel_axis">
+<visual>
+<origin xyz="0 0 0" rpy="1.5708 1.5708 0"/>
+<geometry>
+<cylinder length="3.9" radius="0.1"/>
+</geometry>
+<material name="green">
+<color rgba="0 1 0 1"/>
+</material>
+</visual>
+<inertial>
+<origin rpy="0 0 0" xyz="0 0 0"/>
+<mass value="5"/>
+<inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+</inertial>
+</link>
+
+<link name="main_wheel_one">
+<visual>
+<origin rpy="0 1.5708 0" xyz="0 0 0"/>
+<geometry>
+<cylinder length="0.2" radius="0.8"/>
+</geometry>
+<material name="green">
+<color rgba="0 1 0 1"/>
+</material>
+</visual>
+<inertial>
+<origin rpy="0 0 0" xyz="0 0 0"/>
+<mass value="5"/>
+<inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+</inertial>
+</link>
+
+<link name="main_wheel_two">
+<visual>
+<origin rpy="0 1.5708 0" xyz="0 0 0"/>
+<geometry>
+<cylinder length="0.2" radius="0.8"/>
+</geometry>
+<material name="green">
+<color rgba="0 1 0 1"/>
+</material>
+</visual>
+<inertial>
+<origin rpy="0 0 0" xyz="0 0 0"/>
+<mass value="5"/>
+<inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+</inertial>
+</link>
+
+<link name="support_wheel_one">
+<visual>
+<origin rpy="0 1.5708 0" xyz="0 0 0"/>
+<geometry>
+<sphere radius="0.2"/>
+</geometry>
+<material name="green">
+<color rgba="0 1 0 1"/>
+</material>
+</visual>
+<inertial>
+<origin rpy="0 0 0" xyz="0 0 0"/>
+<mass value="5"/>
+<inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+</inertial>
+</link>
+
+<link name="support_wheel_two">
+<visual>
+<origin rpy="0 1.5708 0" xyz="0 0 0"/>
+<geometry>
+<sphere radius="0.2"/>
+</geometry>
+<material name="green">
+<color rgba="0 1 0 1"/>
+</material>
+</visual>
+<inertial>
+<origin rpy="0 0 0" xyz="0 0 0"/>
+<mass value="5"/>
+<inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+</inertial>
+</link>
+
+<link name="ultrasonic_one">
+<visual>
+<origin xyz="0 0 0" rpy="0 1.5708 0" />
+<geometry>
+<cylinder radius="0.1" length="0.01"/>
+</geometry>
+<material name="gray">
+<color rgba="0.8 0.8 0.8 1"/>
+</material>
+</visual>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value ="0.1"/>
+<inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+</inertial>
+</link>
+
+<link name="ultrasonic_two">
+<visual>
+<origin xyz="0 0 0" rpy="0 1.5708 0" />
+<geometry>
+<cylinder radius="0.1" length="0.01"/>
+</geometry>
+<material name="gray">
+<color rgba="0.8 0.8 0.8 1"/>
+</material>
+</visual>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value ="0.1"/>
+<inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+</inertial>
+</link>
+
+<link name="ultrasonic_three">
+<visual>
+<origin xyz="0 0 0" rpy="0 1.5708 0" />
+<geometry>
+<cylinder radius="0.1" length="0.01"/>
+</geometry>
+<material name="gray">
+<color rgba="0.8 0.8 0.8 1"/>
+</material>
+</visual>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value ="0.1"/>
+<inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+</inertial>
+</link>
+
+<link name="ultrasonic_four">
+<visual>
+<origin xyz="0 0 0" rpy="0 1.5708 0" />
+<geometry>
+<cylinder radius="0.1" length="0.01"/>
+</geometry>
+<material name="gray">
+<color rgba="0.8 0.8 0.8 1"/>
+</material>
+</visual>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value ="0.1"/>
+<inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+</inertial>
+</link>
+
+<link name="ultrasonic_five">
+<visual>
+<origin xyz="0 0 0" rpy="0 1.5708 0" />
+<geometry>
+<cylinder radius="0.1" length="0.01"/>
+</geometry>
+<material name="gray">
+<color rgba="0.8 0.8 0.8 1"/>
+</material>
+</visual>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value ="0.1"/>
+<inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+</inertial>
+</link>
+
+<link name="ultrasonic_six">
+<visual>
+<origin xyz="0 0 0" rpy="0 1.5708 0" />
+<geometry>
+<cylinder radius="0.1" length="0.01"/>
+</geometry>
+<material name="gray">
+<color rgba="0.8 0.8 0.8 1"/>
+</material>
+</visual>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value ="0.1"/>
+<inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+</inertial>
+</link>
+
+<link name="ultrasonic_seven">
+<visual>
+<origin xyz="0 0 0" rpy="0 1.5708 0" />
+<geometry>
+<cylinder radius="0.1" length="0.01"/>
+</geometry>
+<material name="gray">
+<color rgba="0.8 0.8 0.8 1"/>
+</material>
+</visual>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value ="0.1"/>
+<inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+</inertial>
+</link>
+
+<link name="ultrasonic_eight">
+<visual>
+<origin xyz="0 0 0" rpy="0 1.5708 0" />
+<geometry>
+<cylinder radius="0.1" length="0.01"/>
+</geometry>
+<material name="gray">
+<color rgba="0.8 0.8 0.8 1"/>
+</material>
+</visual>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value ="0.1"/>
+<inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+</inertial>
+</link>
+
+<link name="stereo_camera">
+<visual>
+<origin xyz="0 0 0" rpy="0 1.5708 0" />
+<geometry>
+<cylinder radius="0.2" length="0.4"/>
+</geometry>
+<material name="gray">
+<color rgba="0.8 0.8 0.8 1"/>
+</material>
+</visual>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value ="1"/>
+<inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+</inertial>
+</link>
+
+<link name="monocular_camera">
+<visual>
+<origin xyz="0 0 0" rpy="0.0 1.5708 0" />
+<geometry>
+<cylinder radius="0.2" length="0.2"/>
+</geometry>
+<material name="gray">
+<color rgba="0.8 0.8 0.8 1"/>
+</material>
+</visual>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value ="1"/>
+<inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+</inertial>
+</link>
+
+<link name="stand">
+<visual>
+<origin xyz="0 0 0" rpy="0 0 0"/>
+<geometry>
+<box size="1.0 1.0 0.6"/>
+</geometry>
+<material name="green">
+<color rgba="0 1 0 1"/>
+</material>
+</visual>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value ="5"/>
+<inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+</inertial>
+</link>
+
+<link name="laser_rf">
+<visual>
+<origin xyz="0 0 0" rpy="0 0 0"/>
+<geometry>
+<sphere radius="0.4"/>
+</geometry>
+<material name="gray">
+<color rgba="0.8 0.8 0.8 1"/>
+</material>
+</visual>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value ="0.2"/>
+<inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+</inertial>
+</link>
+
+<joint name="immovable_connection" type="fixed">
+<parent link="world"/>
+<child link="base"/>
+<origin xyz="0 0 0" rpy="0 0 0.15" />
+<axis xyz="0 0 0"/>
+<limit lower="0" upper="0" effort="0" velocity="0"/>
+</joint>
+
+<joint name="main_wheel_axis_connection" type="fixed">
+<parent link="base"/>
+<child link="main_wheel_axis"/>
+<origin rpy="0 0 0" xyz="0 0 0" />
+<axis xyz="0 0 0"/>
+<limit lower="0" upper="0" effort="0" velocity="0"/>
+</joint>
+
+<joint name="support_wheel_axis_connection" type="fixed">
+<parent link="base"/>
+<child link="support_wheel_axis"/>
+<origin rpy="0 0 0" xyz="0 0 0" />
+<axis xyz="0 0 0"/>
+<limit lower="0" upper="0" effort="0" velocity="0"/>
+</joint>
+
+<joint name="main_wheel_one_movement" type="continuous">
+<parent link="main_wheel_axis"/>
+<child link="main_wheel_one"/>
+<origin rpy="0.0 0.0 0.0" xyz="-2.1 0.0 0.0"/>
+</joint>
+
+<joint name="main_wheel_two_movement" type="continuous">
+<parent link="main_wheel_axis"/>
+<child link="main_wheel_two"/>
+<origin rpy="0.0 0.0 0.0" xyz="2.1 0.0 0.0"/>
+</joint>
+
+<joint name="support_wheel_one_movement" type="continuous">
+<parent link="support_wheel_axis"/>
+<child link="support_wheel_one"/>
+<origin rpy="0.0 0.0 0.0" xyz="0.0 -1.4 -0.25"/>
+</joint>
+
+<joint name="support_wheel_two_movement" type="continuous">
+<parent link="support_wheel_axis"/>
+<child link="support_wheel_two"/>
+<origin rpy="0.0 0.0 0.0" xyz="0.0 1.4 -0.25"/>
+</joint>
+
+<joint name="ultrasonic_one_connection" type="fixed">
+<parent link="base"/>
+<child link="ultrasonic_one"/>
+<origin rpy="0.0 0.0 1.0472" xyz="1.0 1.732 0.0"/>
+</joint>
+
+<joint name="ultrasonic_two_connection" type="fixed">
+<parent link="base"/>
+<child link="ultrasonic_two"/>
+<origin rpy="0.0 0.0 0.523599" xyz="1.732 1.0 0"/>
+</joint>
+
+<joint name="ultrasonic_three_connection" type="fixed">
+<parent link="base"/>
+<child link="ultrasonic_three"/>
+<origin rpy="0.0 0.0 -1.0472" xyz="1.0 -1.732 0.0"/>
+</joint>
+
+<joint name="ultrasonic_four_connection" type="fixed">
+<parent link="base"/>
+<child link="ultrasonic_four"/>
+<origin rpy="0.0 0.0 -0.523599" xyz="1.732 -1.0 0.0"/>
+</joint>
+
+<joint name="ultrasonic_five_connection" type="fixed">
+<parent link="base"/>
+<child link="ultrasonic_five"/>
+<origin rpy="0.0 0.0 -2.094398" xyz="-1.0 -1.732 0.0"/>
+</joint>
+
+<joint name="ultrasonic_six_connection" type="fixed">
+<parent link="base"/>
+<child link="ultrasonic_six"/>
+<origin rpy="0.0 0.0 -2.617997" xyz="-1.732 -1.0 0.0"/>
+</joint>
+
+<joint name="ultrasonic_seven_connection" type="fixed">
+<parent link="base"/>
+<child link="ultrasonic_seven"/>
+<origin rpy="0.0 0.0 2.094398" xyz="-1.0 1.732 0.0"/>
+</joint>
+
+<joint name="ultrasonic_eight_connection" type="fixed">
+<parent link="base"/>
+<child link="ultrasonic_eight"/>
+<origin rpy="0.0 0.0 2.617997" xyz="-1.732 1.0 0.0"/>
+</joint>
+
+<joint name="stereo_camera_connection" type="fixed">
+<parent link="base"/>
+<child link="stereo_camera"/>
+<origin rpy="0.0 0.0 1.5708" xyz="0.0 2.2 0.0"/>
+</joint>
+
+<joint name="monocular_camera_connection" type="fixed">
+<parent link="base"/>
+<child link="monocular_camera"/>
+<origin rpy="0.0 0.0 -1.5708" xyz="0.0 -2.1 0.0"/>
+</joint>
+
+<joint name="stand_connection" type="fixed">
+<parent link="base"/>
+<child link="stand"/>
+<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.5"/>
+</joint>
+
+<joint name="laser_rf_connection" type="fixed">
+<parent link="stand"/>
+<child link="laser_rf"/>
+<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.6"/>
+</joint>
+
+</robot>

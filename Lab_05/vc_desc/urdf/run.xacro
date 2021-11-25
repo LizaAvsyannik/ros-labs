@@ -1,0 +1,1002 @@
+<?xml version="1.0"?>
+<robot name="vc_robot">
+  <link name="base_link" />
+  <link name="plate">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <cylinder radius="0.55" length="0.2" />
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <cylinder radius="0.55" length="0.2" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.2" />
+      <inertia ixx="0.0158" ixy="0.0" ixz="0.0" iyy="0.0158" iyz="0.0" izz="0.03" />
+    </inertial>
+  </link>
+  <link name="leftwheel">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <cylinder radius= "0.3"  length= "0.1"  />
+      </geometry>
+      <material name="yellow">
+        <color rgba="1 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <cylinder radius= "0.3"  length= "0.1"  />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.2" />
+      <inertia ixx="0.9624" ixy="0.0" ixz="0.0" iyy="1.5024" iyz="0.0" izz="2.46" />
+    </inertial>
+  </link>
+  <link name="rightwheel">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <cylinder radius= "0.3"  length= "0.1"  />
+      </geometry>
+      <material name="yellow">
+        <color rgba="1 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <cylinder radius= "0.3"  length= "0.1"  />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.2" />
+      <inertia ixx="0.9624" ixy="0.0" ixz="0.0" iyy="1.5024" iyz="0.0" izz="2.46" />
+    </inertial>
+  </link>
+  <link name="front_mount">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <sphere radius = ".1"  />
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <sphere radius = ".2"  />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.2" />
+      <inertia ixx="0.9624" ixy="0.0" ixz="0.0" iyy="1.5024" iyz="0.0" izz="2.46" />
+    </inertial>
+  </link>
+  <link name="back_mount">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <sphere radius = ".1"  />
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <sphere radius = ".2"  />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.2" />
+      <inertia ixx="0.9624" ixy="0.0" ixz="0.0" iyy="1.5024" iyz="0.0" izz="2.46" />
+    </inertial>
+  </link>
+  <link name="stand">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.2 0.2 0.5" />
+      </geometry>
+      <material name="yellow">
+        <color rgba="1 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <box size="0.2 0.2 0.5" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.9624" ixy="0.0" ixz="0.0" iyy="1.5024" iyz="0.0" izz="2.46" />
+    </inertial>
+  </link>
+  <link name="hokuyo_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <box size="0.1 0.1 0.1" />
+      </geometry>
+      <material name="purple">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <box size="0.1 0.1 0.1" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.2" />
+      <inertia ixx="0.9624" ixy="0.0" ixz="0.0" iyy="1.5024" iyz="0.0" izz="2.46" />
+    </inertial>
+  </link>
+  <link name="ultrasonic1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.01" />
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.01" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00000108" ixy="0.0" ixz="0.0" iyy="0.00000108" iyz="0.0" izz="0.000002" />
+    </inertial>
+  </link>
+  <link name="ultrasonic2">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.01" />
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.01" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00000108" ixy="0.0" ixz="0.0" iyy="0.00000108" iyz="0.0" izz="0.000002" />
+    </inertial>
+  </link>
+  <link name="ultrasonic3">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.01" />
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.01" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00000108" ixy="0.0" ixz="0.0" iyy="0.00000108" iyz="0.0" izz="0.000002" />
+    </inertial>
+  </link>
+  <link name="ultrasonic4">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.01" />
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.01" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00000108" ixy="0.0" ixz="0.0" iyy="0.00000108" iyz="0.0" izz="0.000002" />
+    </inertial>
+  </link>
+  <link name="ultrasonic5">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.01" />
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.01" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00000108" ixy="0.0" ixz="0.0" iyy="0.00000108" iyz="0.0" izz="0.000002" />
+    </inertial>
+  </link>
+  <link name="ultrasonic6">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.01" />
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.01" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00000108" ixy="0.0" ixz="0.0" iyy="0.00000108" iyz="0.0" izz="0.000002" />
+    </inertial>
+  </link>
+  <link name="ultrasonic7">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.01" />
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.01" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00000108" ixy="0.0" ixz="0.0" iyy="0.00000108" iyz="0.0" izz="0.000002" />
+    </inertial>
+  </link>
+  <link name="ultrasonic8">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.01" />
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.01" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00000108" ixy="0.0" ixz="0.0" iyy="0.00000108" iyz="0.0" izz="0.000002" />
+    </inertial>
+  </link>
+  <link name="stereo_camera">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.1" />
+      </geometry>
+      <material name="grey">
+        <color rgba="0.5 0.5 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.1" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00000108" ixy="0.0" ixz="0.0" iyy="0.00000108" iyz="0.0" izz="0.000002" />
+    </inertial>
+  </link>
+  <link name="camera_depth"/>
+  <link name="monocular_camera">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.1" />
+      </geometry>
+      <material name="green">
+        <color rgba="0 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.1" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00000108" ixy="0.0" ixz="0.0" iyy="0.00000108" iyz="0.0" izz="0.000002" />
+    </inertial>
+  </link>
+  <joint name="weld" type="fixed">
+    <parent link="base_link" />
+    <child link="plate" />
+    <origin xyz="0 0 0" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <joint name="stereo_connection" type="fixed">
+    <parent link="plate" />
+    <child link="stereo_camera" />
+    <origin xyz="0.65 0 0" rpy="0 0 0" />
+    <axis xyz="0 0 0" />
+  </joint>
+<joint name="camera_depth_connection" type="fixed">
+    <parent link="stereo_camera" />
+    <child link="camera_depth" />
+    <origin xyz="0 0 0.25" rpy="-1.5708 0 -1.5708" />
+  </joint>
+  <joint name="monocular_connection" type="fixed">
+    <parent link="plate" />
+    <child link="monocular_camera" />
+    <origin xyz="-0.65 0 0" rpy="3.1416 3.1416 0" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <joint name="ultrasonic1_connection" type="fixed">
+    <parent link="plate" />
+    <child link="ultrasonic1" />
+    <origin xyz="0.275 0.4763 0" rpy="0 0 1.0472" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <joint name="ultrasonic2_connection" type="fixed">
+    <parent link="plate" />
+    <child link="ultrasonic2" />
+    <origin xyz="0.4763 0.275 0" rpy="0 0 0.523599" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <joint name="ultrasonic3_connection" type="fixed">
+    <parent link="plate" />
+    <child link="ultrasonic3" />
+    <origin xyz="0.4763 -0.275 0" rpy="0 0 -0.523599" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <joint name="ultrasonic4_connection" type="fixed">
+    <parent link="plate" />
+    <child link="ultrasonic4" />
+    <origin xyz="0.275 -0.4763 0" rpy="0 0 -1.0472" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <joint name="ultrasonic5_connection" type="fixed">
+    <parent link="plate" />
+    <child link="ultrasonic5" />
+    <origin xyz="-0.275 -0.4763 0" rpy="0 0 -2.094398" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <joint name="ultrasonic6_connection" type="fixed">
+    <parent link="plate" />
+    <child link="ultrasonic6" />
+    <origin xyz="-0.4763 -0.275 0" rpy="0 0 -2.617997" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <joint name="ultrasonic7_connection" type="fixed">
+    <parent link="plate" />
+    <child link="ultrasonic7" />
+    <origin xyz="-0.4763 0.275 0" rpy="0 0 2.617997" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <joint name="ultrasonic8_connection" type="fixed">
+    <parent link="plate" />
+    <child link="ultrasonic8" />
+    <origin xyz="-0.275 0.4763 0" rpy="0 0 2.094398" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <joint name="stand_connection" type="fixed">
+    <parent link="plate" />
+    <child link="stand" />
+    <origin xyz="0 0 0.2" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <joint name="hokuyo" type="fixed">
+    <parent link="stand" />
+    <child link="hokuyo_link" />
+    <origin xyz="0 0 0.3" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <joint name="leftwheel_joint" type="continuous">
+    <parent link="plate" />
+    <child link="leftwheel" />
+    <origin rpy="1.5708 0 0" xyz="0 -0.6 0.0" />
+    <axis xyz="0 0 1" />
+    <dynamics damping="100" friction="100" />
+  </joint>
+  <joint name="rightwheel_joint" type="continuous">
+    <parent link="plate" />
+    <child link="rightwheel" />
+    <origin rpy="1.5708 0 0" xyz="0 0.6 0.0" />
+    <axis xyz="0 0 1" />
+    <dynamics damping="100" friction="100" />
+  </joint>
+  <joint name="frontmountweld" type="fixed">
+    <parent link="plate" />
+    <child link="front_mount" />
+    <origin xyz="-.4 0 -.1" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <joint name="backmountweld" type="fixed">
+    <parent link="plate" />
+    <child link="back_mount" />
+    <origin xyz=".4 0 -.1" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <gazebo reference="plate">
+    <mu1 value="2.0" />
+    <mu2 value="4.0" />
+    <kp value="1000000000" />
+    <kd value="1000000.0" />
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <gazebo reference="stand">
+    <mu1 value="2.0" />
+    <mu2 value="4.0" />
+    <kp value="1000000000" />
+    <kd value="1000000.0" />
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+  <gazebo reference="stereo_camera">
+    <mu1 value="2.0" />
+    <mu2 value="4.0" />
+    <kp value="1000000000" />
+    <kd value="1000000.0" />
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <gazebo reference="monocular_camera">
+    <mu1 value="2.0" />
+    <mu2 value="4.0" />
+    <kp value="1000000000" />
+    <kd value="1000000.0" />
+    <material>Gazebo/Green</material>
+  </gazebo>
+  <gazebo reference="ultrasonic1">
+    <mu1 value="2.0" />
+    <mu2 value="4.0" />
+    <kp value="1000000000" />
+    <kd value="1000000.0" />
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="ultrasonic2">
+    <mu1 value="2.0" />
+    <mu2 value="4.0" />
+    <kp value="1000000000" />
+    <kd value="1000000.0" />
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="ultrasonic3">
+    <mu1 value="2.0" />
+    <mu2 value="4.0" />
+    <kp value="1000000000" />
+    <kd value="1000000.0" />
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="ultrasonic4">
+    <mu1 value="2.0" />
+    <mu2 value="4.0" />
+    <kp value="1000000000" />
+    <kd value="1000000.0" />
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="ultrasonic5">
+    <mu1 value="2.0" />
+    <mu2 value="4.0" />
+    <kp value="1000000000" />
+    <kd value="1000000.0" />
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="ultrasonic6">
+    <mu1 value="2.0" />
+    <mu2 value="4.0" />
+    <kp value="1000000000" />
+    <kd value="1000000.0" />
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="ultrasonic7">
+    <mu1 value="2.0" />
+    <mu2 value="4.0" />
+    <kp value="1000000000" />
+    <kd value="1000000.0" />
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="ultrasonic8">
+    <mu1 value="2.0" />
+    <mu2 value="4.0" />
+    <kp value="1000000000" />
+    <kd value="1000000.0" />
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="hokuyo_link">
+    <mu1 value="2.0" />
+    <mu2 value="4.0" />
+    <kp value="1000000000" />
+    <kd value="1000000.0" />
+    <material>Gazebo/Purple</material>
+  </gazebo>
+  <gazebo reference="leftwheel">
+    <mu1 value="2.0" />
+    <mu2 value="4.0" />
+    <kp value="1000000000" />
+    <kd value="1000000.0" />
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+  <gazebo reference="rightwheel">
+    <mu1 value="2.0" />
+    <mu2 value="4.0" />
+    <kp value="1000000000" />
+    <kd value="1000000.0" />
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+  <gazebo reference="front_mount">
+    <mu1 value="0.0" />
+    <mu2 value="0.0" />
+    <kp value="1000000000" />
+    <kd value="1000000.0" />
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="back_mount">
+    <mu1 value="0.0" />
+    <mu2 value="0.0" />
+    <kp value="1000000000" />
+    <kd value="1000000.0" />
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <!-- Plugin update rate in Hz -->
+      <updateRate>20</updateRate>
+      <!-- Name of left joint, defaults to `left_joint` -->
+      <leftJoint>leftwheel_joint</leftJoint>
+      <!-- Name of right joint, defaults to `right_joint` -->
+      <rightJoint>rightwheel_joint</rightJoint>
+      <!-- The distance from the center of one wheel to the other, in meters, defaults to 0.34 m -->
+      <wheelSeparation>0.5380</wheelSeparation>
+      <!-- Diameter of the wheels, in meters, defaults to 0.15 m -->
+      <wheelDiameter>0.6</wheelDiameter>
+      <!-- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -->
+      <wheelAcceleration>1.0</wheelAcceleration>
+      <!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
+      <wheelTorque>20</wheelTorque>
+      <!-- Topic to receive geometry_msgs/Twist message commands, defaults to `cmd_vel` -->
+      <commandTopic>vc_robot/cmd_vel</commandTopic>
+      <!-- Topic to publish nav_msgs/Odometry messages, defaults to `odom` -->
+      <odometryTopic>odom</odometryTopic>
+      <!-- Odometry frame, defaults to `odom` -->
+      <odometryFrame>odom</odometryFrame>
+      <!-- Robot frame to calculate odometry from, defaults to `base_footprint` -->
+      <robotBaseFrame>base_link</robotBaseFrame>
+      <!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
+      <odometrySource>1</odometrySource>
+      <!-- Set to true to publish transforms for the wheel links, defaults to false -->
+      <publishWheelTF>false</publishWheelTF>
+      <!-- Set to true to publish transforms for the odometry, defaults to true -->
+      <publishOdom>true</publishOdom>
+      <!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -->
+      <publishWheelJointState>false</publishWheelJointState>
+      <!-- Set to true to swap right and left wheels, defaults to true -->
+      <legacyMode>true</legacyMode>
+      <pose_covariance_diagonal>[1.0, 1.0, 0.0, 0.0, 0.0, 1.0]</pose_covariance_diagonal>
+      <twist_covariance_diagonal>[0.01, 0.0, 0.0, 0.0, 0.0, 0.1]</twist_covariance_diagonal>
+      <publishTf>1</publishTf>
+      <publishOdomTF>true</publishOdomTF>
+    </plugin>
+  </gazebo>
+  <gazebo reference="stereo_camera">
+    <sensor name="stereo_camera" type="depth">
+    <alwaysOn>true</alwaysOn>
+<visualize>true</visualize>
+      <update_rate>30.0</update_rate>
+      <camera>
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.01</near>
+          <far>100</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin name="stereo_camera_controller" filename="libgazebo_ros_openni_kinect.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30.0</updateRate>
+        <cameraName>stereo_camera_ir</cameraName>
+        <imageTopicName>/vc_robot/stereo_camera/color/image_raw</imageTopicName>
+        <cameraInfoTopicName>/vc_robot/stereo_camera/color/camera_info</cameraInfoTopicName>
+        <depthImageTopicName>/vc_robot/stereo_camera/depth/image_raw</depthImageTopicName>
+        <depthImageInfoTopicName>/vc_robot/stereo_camera/depth/camera_info</depthImageInfoTopicName>
+        <pointCloudTopicName>/vc_robot/stereo_camera/depth/points</pointCloudTopicName>
+        <frameName>camera_depth</frameName>
+        <pointCloudCutoff>0.8</pointCloudCutoff>
+        <pointCloudCutoffMax>3.5</pointCloudCutoffMax>
+        <distortionK1>0.00000001</distortionK1>
+        <distortionK2>0.00000001</distortionK2>
+        <distortionK3>0.00000001</distortionK3>
+        <distortionT1>0.00000001</distortionT1>
+        <distortionT2>0.00000001</distortionT2>
+        <CxPrime>0</CxPrime>
+        <Cx>0</Cx>
+        <Cy>0</Cy>
+        <focalLength>0</focalLength>
+        <hackBaseline>0</hackBaseline>
+      </plugin>
+    </sensor>
+  </gazebo>
+  <gazebo reference="monocular_camera">
+    <sensor type="camera" name="monocular_camera_sensor">
+      <update_rate>30.0</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>800</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30.0</updateRate>
+        <cameraName>vc_robot/monocular_camera_sensor</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>monocular_camera</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+        <CxPrime>0</CxPrime>
+        <Cx>0</Cx>
+        <Cy>0</Cy>
+      </plugin>
+    </sensor>
+  </gazebo>
+  <gazebo reference="ultrasonic1">
+    <sensor type="ray" name="ultrasonic1_sensor">
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>5</samples>
+            <min_angle>-0.7854</min_angle>
+            <max_angle>0.7854</max_angle>
+          </horizontal>
+          <vertical>
+            <samples>5</samples>
+            <min_angle>-0.7854</min_angle>
+            <max_angle>0.7854</max_angle>
+          </vertical>
+        </scan>
+        <range>
+          <min>0.02</min>
+          <max>0.8</max>
+        </range>
+      </ray>
+      <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>10</updateRate>
+        <topicName>vc_robot/ultrasonic1</topicName>
+        <frameName>ultrasonic1</frameName>
+        <radiation>ultrasound</radiation>
+        <fov>1.57</fov>
+      </plugin>
+    </sensor>
+  </gazebo>
+  <gazebo reference="ultrasonic2">
+    <sensor type="ray" name="ultrasonic2_sensor">
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>5</samples>
+            <min_angle>-0.7854</min_angle>
+            <max_angle>0.7854</max_angle>
+          </horizontal>
+          <vertical>
+            <samples>5</samples>
+            <min_angle>-0.7854</min_angle>
+            <max_angle>0.7854</max_angle>
+          </vertical>
+        </scan>
+        <range>
+          <min>0.02</min>
+          <max>0.8</max>
+        </range>
+      </ray>
+      <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>10</updateRate>
+        <topicName>vc_robot/ultrasonic2</topicName>
+        <frameName>ultrasonic2</frameName>
+        <radiation>ultrasound</radiation>
+        <fov>1.57</fov>
+      </plugin>
+    </sensor>
+  </gazebo>
+  <gazebo reference="ultrasonic3">
+    <sensor type="ray" name="ultrasonic3_sensor">
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>5</samples>
+            <min_angle>-0.7854</min_angle>
+            <max_angle>0.7854</max_angle>
+          </horizontal>
+          <vertical>
+            <samples>5</samples>
+            <min_angle>-0.7854</min_angle>
+            <max_angle>0.7854</max_angle>
+          </vertical>
+        </scan>
+        <range>
+          <min>0.02</min>
+          <max>0.8</max>
+        </range>
+      </ray>
+      <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>10</updateRate>
+        <topicName>vc_robot/ultrasonic3</topicName>
+        <frameName>ultrasonic3</frameName>
+        <radiation>ultrasound</radiation>
+        <fov>1.57</fov>
+      </plugin>
+    </sensor>
+  </gazebo>
+  <gazebo reference="ultrasonic4">
+    <sensor type="ray" name="ultrasonic4_sensor">
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>5</samples>
+            <min_angle>-0.7854</min_angle>
+            <max_angle>0.7854</max_angle>
+          </horizontal>
+          <vertical>
+            <samples>5</samples>
+            <min_angle>-0.7854</min_angle>
+            <max_angle>0.7854</max_angle>
+          </vertical>
+        </scan>
+        <range>
+          <min>0.02</min>
+          <max>0.8</max>
+        </range>
+      </ray>
+      <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>10</updateRate>
+        <topicName>vc_robot/ultrasonic4</topicName>
+        <frameName>ultrasonic4</frameName>
+        <radiation>ultrasound</radiation>
+        <fov>1.57</fov>
+      </plugin>
+    </sensor>
+  </gazebo>
+  <gazebo reference="ultrasonic5">
+    <sensor type="ray" name="ultrasonic5_sensor">
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>5</samples>
+            <min_angle>-0.7854</min_angle>
+            <max_angle>0.7854</max_angle>
+          </horizontal>
+          <vertical>
+            <samples>5</samples>
+            <min_angle>-0.7854</min_angle>
+            <max_angle>0.7854</max_angle>
+          </vertical>
+        </scan>
+        <range>
+          <min>0.02</min>
+          <max>0.8</max>
+        </range>
+      </ray>
+      <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>10</updateRate>
+        <topicName>vc_robot/ultrasonic5</topicName>
+        <frameName>ultrasonic5</frameName>
+        <radiation>ultrasound</radiation>
+        <fov>1.57</fov>
+      </plugin>
+    </sensor>
+  </gazebo>
+  <gazebo reference="ultrasonic6">
+    <sensor type="ray" name="ultrasonic6_sensor">
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>5</samples>
+            <min_angle>-0.7854</min_angle>
+            <max_angle>0.7854</max_angle>
+          </horizontal>
+          <vertical>
+            <samples>5</samples>
+            <min_angle>-0.7854</min_angle>
+            <max_angle>0.7854</max_angle>
+          </vertical>
+        </scan>
+        <range>
+          <min>0.02</min>
+          <max>0.8</max>
+        </range>
+      </ray>
+      <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>10</updateRate>
+        <topicName>vc_robot/ultrasonic6</topicName>
+        <frameName>ultrasonic6</frameName>
+        <radiation>ultrasound</radiation>
+        <fov>1.57</fov>
+      </plugin>
+    </sensor>
+  </gazebo>
+  <gazebo reference="ultrasonic7">
+    <sensor type="ray" name="ultrasonic7_sensor">
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>5</samples>
+            <min_angle>-0.7854</min_angle>
+            <max_angle>0.7854</max_angle>
+          </horizontal>
+          <vertical>
+            <samples>5</samples>
+            <min_angle>-0.7854</min_angle>
+            <max_angle>0.7854</max_angle>
+          </vertical>
+        </scan>
+        <range>
+          <min>0.02</min>
+          <max>0.8</max>
+        </range>
+      </ray>
+      <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>10</updateRate>
+        <topicName>vc_robot/ultrasonic7</topicName>
+        <frameName>ultrasonic7</frameName>
+        <radiation>ultrasound</radiation>
+        <fov>1.57</fov>
+      </plugin>
+    </sensor>
+  </gazebo>
+  <gazebo reference="ultrasonic8">
+    <sensor type="ray" name="ultrasonic8_sensor">
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>5</samples>
+            <min_angle>-0.7854</min_angle>
+            <max_angle>0.7854</max_angle>
+          </horizontal>
+          <vertical>
+            <samples>5</samples>
+            <min_angle>-0.7854</min_angle>
+            <max_angle>0.7854</max_angle>
+          </vertical>
+        </scan>
+        <range>
+          <min>0.02</min>
+          <max>0.8</max>
+        </range>
+      </ray>
+      <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>10</updateRate>
+        <topicName>vc_robot/ultrasonic8</topicName>
+        <frameName>ultrasonic8</frameName>
+        <radiation>ultrasound</radiation>
+        <fov>1.57</fov>
+      </plugin>
+    </sensor>
+  </gazebo>
+  <gazebo reference="hokuyo_link">
+    <sensor type="gpu_ray" name="head_hokuyo_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>40</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-1.570796</min_angle>
+            <max_angle>1.570796</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.10</min>
+          <max>30.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
+        <topicName>/vc_robot/laser/scan</topicName>
+        <frameName>hokuyo_link</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+</robot>

@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="NAME_UNIT" >
+	<xacro:macro name="gazebo" params="link_name mu1 mu2 kp kd COLOR">
+		<gazebo reference="${link_name}">
+			<mu1 value="${mu1}"/>
+			<mu2 value="${mu2}"/>
+			<kp value="${kd}" />
+			<kd value="${kd}" />
+			<material>Gazebo/${COLOR}</material>
+		</gazebo>
+	</xacro:macro>
+
+	<xacro:macro name="ultra" params="link_name angle">
+<gazebo reference="${link_name}">
+<sensor type="ray" name="${link_name}_sensor">
+<update_rate>10</update_rate>
+<visualize>true</visualize>
+<ray>
+<scan>
+<horizontal>
+<samples>5</samples>
+<min_angle>-${angle}</min_angle>
+<max_angle>${angle}</max_angle>
+</horizontal>
+<vertical>
+<samples>5</samples>
+<min_angle>-${angle}</min_angle>
+<max_angle>${angle}</max_angle>
+</vertical>
+</scan>
+<range>
+<min>0.02</min>
+<max>0.8</max>
+</range>
+</ray>
+<plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
+<topicName>/vc_robot/${link_name}/ultrasonic</topicName>
+<frameName>${link_name}</frameName>
+<fov>${angle}</fov>
+<radiation>ultrasound</radiation>
+</plugin>
+</sensor>
+</gazebo>
+</xacro:macro>
+
+<xacro:macro name="stereo" params="link_name camera_name">
+<gazebo reference="${link_name}">
+<sensor name="${link_name}_camera" type="depth">
+<update_rate>30</update_rate>
+<camera>
+<horizontal_fov>1.047198</horizontal_fov>
+<image>
+<width>800</width>
+<height>800</height>
+<format>R8G8B8</format>
+</image>
+<clip>
+<near>0.05</near>
+<far>3</far>
+ </clip>
+</camera>
+<plugin name="${link_name}_controller" filename="libgazebo_ros_openni_kinect.so">
+<baseline>0.2</baseline>
+<alwaysOn>true</alwaysOn>
+<updateRate>1.0</updateRate>
+<cameraName>${camera_name}_sensor</cameraName>
+<imageTopicName>/vc_robot/${camera_name}/color/image_raw</imageTopicName>
+<cameraInfoTopicName>/vc_robot/${camera_name}/color/camera_info
+</cameraInfoTopicName>
+<depthImageTopicName>/vc_robot/${camera_name}/depth/image_raw
+</depthImageTopicName>
+<depthImageInfoTopicName>/vc_robot/${camera_name}/depth/camera_info
+</depthImageInfoTopicName>
+<pointCloudTopicName>/vc_robot/${camera_name}/depth/points</pointCloudTopicName>
+<frameName>${link_name}</frameName>
+<pointCloudCutoff>0.5</pointCloudCutoff>
+<pointCloudCutoffMax>3.0</pointCloudCutoffMax>
+<distortionK1>0.00000001</distortionK1>
+<distortionK2>0.00000001</distortionK2>
+<distortionK3>0.00000001</distortionK3>
+<distortionT1>0.00000001</distortionT1>
+<distortionT2>0.00000001</distortionT2>
+<CxPrime>0</CxPrime>
+<Cx>0</Cx>
+<Cy>0</Cy>
+<focalLength>0</focalLength>
+<hackBaseline>0</hackBaseline>
+</plugin>
+</sensor>
+</gazebo>
+</xacro:macro>
+
+<xacro:macro name="monocular" params="link_name">
+<gazebo reference="${link_name}">
+<sensor type="camera" name="${link_name}_sensor">
+<update_rate>30.0</update_rate>
+<camera name="head">
+<horizontal_fov>1.3962634</horizontal_fov>
+<image>
+<width>800</width>
+<height>800</height>
+<format>R8G8B8</format>
+</image>
+<clip>
+<near>0.02</near>
+<far>300</far>
+</clip>
+<noise>
+<type>gaussian</type>
+<mean>0.0</mean>
+<stddev>0.007</stddev>
+</noise>
+</camera>
+<plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+<alwaysOn>true</alwaysOn>
+<updateRate>0.0</updateRate>
+<cameraName>/vc_robot/${link_name}
+</cameraName>
+<imageTopicName>image_raw</imageTopicName>
+<cameraInfoTopicName>camera_info</cameraInfoTopicName>
+<frameName>${link_name}</frameName>
+<hackBaseline>0.07</hackBaseline>
+<distortionK1>0.0</distortionK1>
+<distortionK2>0.0</distortionK2>
+<distortionK3>0.0</distortionK3>
+<distortionT1>0.0</distortionT1>
+<distortionT2>0.0</distortionT2>
+</plugin>
+</sensor>
+</gazebo>
+</xacro:macro>
+
+<xacro:macro name="laser" params="link_name">
+<gazebo reference="${link_name}">
+<sensor type="gpu_ray" name="${link_name}_sensor">
+<pose>0 0 0 0 0 0</pose>
+<visualize>false</visualize>
+<update_rate>40</update_rate>
+<ray>
+<scan>
+<horizontal>
+<samples>720</samples>
+<resolution>1</resolution>
+<min_angle>-1.570796</min_angle>
+<max_angle>1.570796</max_angle>
+</horizontal>
+</scan>
+<range>
+<min>0.10</min>
+<max>30.0</max>
+<resolution>0.01</resolution>
+</range>
+<noise>
+<type>gaussian</type>
+<mean>0.0</mean>
+<stddev>0.01</stddev>
+</noise>
+</ray>
+<plugin name="gazebo_ros_head_hokuyo_controller"
+filename="libgazebo_ros_gpu_laser.so">
+<topicName>/vc_robot/${link_name}/scan</topicName>
+<frameName>${link_name}</frameName>
+</plugin>
+</sensor>
+</gazebo>
+</xacro:macro>
+</robot>

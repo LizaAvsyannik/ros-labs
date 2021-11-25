@@ -1,0 +1,29 @@
+exi<?xml version="1.0"?> 
+  <gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>20</updateRate>
+      <leftJoint>main_wheel_one_movement</leftJoint>
+      <rightJoint>main_wheel_two_movement</rightJoint>
+      <wheelSeparation>3.9</wheelSeparation>
+      <wheelDiameter>1.6</wheelDiameter>
+      <torque>20</torque>
+      <commandTopic>/vc_robot/cmd_vel</commandTopic>
+      <odometryTopic>/vc_robot/odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+      <odometrySource>1</odometrySource> <!-- Источник одометрии, 0 от
+ЭНКОДЕРОВ, 1 от ГЛОБАЛЬНОЙ системы координат -->
+      <publishWheelTF>true</publishWheelTF> <!-- Установка публикации
+перемещения локальной системы координат колёс, по умолчению false -->
+	<publishOdom>true</publishOdom> <!-- Публикация одометрии, по умолчанию
+true -->
+	<publishWheelJointState>true</publishWheelJointState> <!-- Публикация
+положений звеньев в формате sensor_msgs/JointState в теме /joint_states, по
+умолчанию false -->
+	<legacyMode>false</legacyMode> <!-- Замена управление колёс с левого на
+правое, по умолчанию to true -->
+    </plugin>
+  </gazebo>
+ 
+

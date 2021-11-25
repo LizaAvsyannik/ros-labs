@@ -1,0 +1,5 @@
+rosnode kill /joint_state_publisher_gui
+
+rostopic pub -r 1000 /joint_states sensor_msgs/JointState '{header: auto, name: ['vertical_axis_movement',
+'vertical_block_movement', 'horizontal_axis_movement'], position: [-0.59, -1.33, -0.55], 
+velocity: [0.01, 0.01, 0.01], effort: [1, 2, 3]}'

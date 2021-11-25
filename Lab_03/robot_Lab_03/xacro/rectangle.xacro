@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="NAME_UNIT" >
+	<xacro:macro name="rectangle" params="link_name l w h m">
+		<link name="${link_name}">
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				 <geometry>
+					<box size="${l} ${w} ${h}"/>
+				</geometry>
+				<material name="color">
+					<xacro:insert_block name="rectangle_color"/>
+				</material>
+			</visual>
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="${m}" />
+				<inertia ixx = "${m*(h**2+l**2)/12}" iyy = "${m*(h**2+w**2)/12}" izz = "${m*(w**2+l**2)/12}" ixy = "0" ixz = "0" iyz = "0" />  
+			</inertial>
+		</link>
+	</xacro:macro>		
+</robot>

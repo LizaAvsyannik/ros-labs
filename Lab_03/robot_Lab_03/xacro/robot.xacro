@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="NAME_UNIT" >
+	<xacro:property name="l" value="24" />
+	<xacro:property name="w" value="8" />
+	<xacro:property name="h" value="2" />
+	<xacro:property name="m" value="10"/>
+
+	<xacro:include filename= "rectangle.xacro"/>
+	<xacro:include filename="cylinder.xacro"/>
+	<xacro:include filename="joints.xacro"/>
+	
+	<link name="root"/>
+
+	<xacro:rectangle link_name="main_block" l="${l}" w="${w}" h="${h}" m="${m}" />
+
+	<xacro:rectangle link_name="small_block1" l="${l/6}" w="${w/4}" h="${h}" m="${m/10}" />
+	<xacro:rectangle link_name="small_block2" l="${l/6}" w="${w/4}" h="${h}" m="${m/10}" />
+	<xacro:rectangle link_name="small_block3" l="${l/6}" w="${w/4}" h="${h}" m="${m/10}" />
+	<xacro:rectangle link_name="small_block4" l="${l/6}" w="${w/4}" h="${h}" m="${m/10}" />
+
+	<xacro:rectangle link_name="vertical_axis" l="${l/12}" w="${w/4}" h="${h*6}" m="${m/3}" />
+	<xacro:rectangle link_name="horizontal_axis" l="${l/2}" w="${w/4}" h="${h}" m="${m/6}"/>
+
+	<xacro:cylinder link_name="cylinder1" r="${h*2/k}" l="${w/2}" m="${m/8}"/>
+	<xacro:cylinder link_name="cylinder2" r="${h*2/k}" l="${w/2}" m="${m/8}"/>
+
+	<xacro:rec2rec_joint parent_name="root" child_name="main_block" type="fixed" rotation="0 0 0 " angle="0 0 0"  translateX="0" translateY="0" translateZ="0" dirX="0" dirY="0" dirZ="0" n="0"/>
+	<xacro:rec2rec_joint parent_name="main_block" child_name="small_block1" type="fixed" rotation="0 0 0" angle="0 0 0" translateX="${l/2+l/12}" translateY="${3*w/8}" translateZ="0" dirX="1" dirY="1" dirZ="0" n="1"/>
+	<xacro:rec2rec_joint parent_name="main_block" child_name="small_block2" type="fixed" rotation="0 0 0" angle="0 0 0"  translateX="${l/2+l/12}" translateY="${3*w/8}" translateZ="0" dirX="1" dirY="-1" dirZ="0" n="2"/>
+	<xacro:rec2rec_joint parent_name="main_block" child_name="small_block3" type="fixed" rotation="0 0 0" angle="0 0 0" translateX="${l/2+l/12}" translateY="${3*w/8}" translateZ="0" dirX="-1" dirY="1" dirZ="0" n="3"/>
+	<xacro:rec2rec_joint parent_name="main_block" child_name="small_block4" type="fixed" rotation="0 0 0" angle="0 0 0" translateX="${l/2+l/12}" translateY="${3*w/8}" translateZ="0" dirX="-1" dirY="-1" dirZ="0" n="4"/>
+	<xacro:rec2rec_joint parent_name="main_block" child_name="vertical_axis" type="fixed" rotation="0 0 0" angle="0 0 0" translateX="${3*l/8}" translateY="0" translateZ="${h*3}" dirX="1" dirY="0" dirZ="1" n="5"/>
+	<xacro:rec2rec_joint parent_name="vertical_axis" child_name="horizontal_axis" type="continuous" rotation="0 0 1" angle="0 0 1.578" translateX="0" translateY="0" translateZ="${h*3}" dirX="0" dirY="0" dirZ="1" n="6"/>
+	
+	<xacro:cyl2rec_joint parent_name="small_block1" child_name="cylinder1"  translateX="0" translateY="${w/8+w/4}" translateZ="0" dirX="0" dirY="-1" dirZ="0" n="1"/>
+	<xacro:cyl2rec_joint parent_name="small_block4" child_name="cylinder2"  translateX="0" translateY="${w/8+w/4}" translateZ="0" dirX="0" dirY="1" dirZ="0" n="2"/>
+</robot>

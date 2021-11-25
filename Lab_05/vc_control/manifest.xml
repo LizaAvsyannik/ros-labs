@@ -1,0 +1,16 @@
+<package>
+  <description brief="vc_control">
+
+     vc_control
+
+  </description>
+  <author>ros</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/vc_control</url>
+  
+  <depend package="controller_manager" />
+  <depend package="joint_state_controller" />
+  <depend package="robot_state_publisher" />
+
+</package>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+<include file="$(find gazebo_ros)/launch/empty_world.launch">
+</include>
+<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+args="-x 0 -y 0 -z 1 -Y 0 -urdf
+-model $(find MYROBOT_description)/urdf/run.xacro -param
+robot_description -b" />
+</launch>

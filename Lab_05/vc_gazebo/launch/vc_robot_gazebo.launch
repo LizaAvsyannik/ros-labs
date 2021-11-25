@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+<include file="$(find gazebo_ros)/launch/empty_world.launch">
+<arg name="world_name" value="$(find vc_gazebo)/worlds/cafe.world"/>
+</include>
+<param name="robot_description" command="$(find xacro)/xacro --inorder '$(find vc_desc)/urdf/run.xacro'"/>
+<node name="robot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args=" -urdf -param robot_description -model vc_robot -x 0 -y 0 -z 1"/>
+<node name="teleop" pkg="teleop_twist_keyboard"
+type="teleop_twist_keyboard.py" output="screen">
+<remap from="/cmd_vel" to="/vc_robot/cmd_vel"/>
+</node>
+</launch>

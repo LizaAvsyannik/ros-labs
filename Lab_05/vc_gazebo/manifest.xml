@@ -1,0 +1,12 @@
+<package>
+  <description brief="vc_gazebo">
+
+     vc_gazebo
+
+  </description>
+  <author>ros</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/vc_gazebo</url>
+
+</package>

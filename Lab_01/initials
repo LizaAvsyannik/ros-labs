@@ -1,0 +1,52 @@
+#!usr/bin/bash
+rosservice call /reset
+
+#make pen invisible while teleportating to letter A starting point
+rosservice call /turtle1/set_pen 255 0 0 5 1
+rosservice call /turtle1/teleport_absolute 0.8 0 1.57
+
+#draw letter A
+rosservice call /turtle1/set_pen 255 0 0 5 0
+rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[8.0, 0.0, 0.0]' '[0.0, 0.0, 0.0]'
+rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[4.0, 0.0, 0.0]' '[0.0, 0.0, -3.115]'
+rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[8.0, 0.0, 0.0]' '[0.0, 0.0, 0.0]'
+rosservice call /turtle1/set_pen 255 0 0 5 1
+rosservice call /turtle1/teleport_absolute 0.8 4.5 0
+rosservice call /turtle1/set_pen 255 0 0 5 0
+rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[2.6, 0.0, 0.0]' '[0.0, 0.0, 0.0]'
+ 
+#teleportating to letter E starting point
+rosservice call /turtle1/set_pen 0 255 0 8 1
+rosservice call /turtle1/teleport_absolute 4.2 0 1.57
+
+#draw letter E
+rosservice call /turtle1/set_pen 0 255 0 8 0
+rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[9.0, 0.0, 0.0]' '[0.0, 0.0, 0.0]'
+rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, -2.6, 0.0]' '[0.0, 0.0, 0.0]'
+rosservice call /turtle1/set_pen 0 255 0 8 1
+rosservice call /turtle1/teleport_absolute 4.2 4.5 0
+rosservice call /turtle1/set_pen 0 255 0 8 0
+rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[2.6, 0.0, 0.0]' '[0.0, 0.0, 0.0]'
+rosservice call /turtle1/set_pen 0 255 0 8 1
+rosservice call /turtle1/teleport_absolute 4.2 0 0
+rosservice call /turtle1/set_pen 0 255 0 8 0
+rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[2.6, 0.0, 0.0]' '[0.0, 0.0, 0.0]'
+
+#teleportating to letter D starting point
+rosservice call /turtle1/set_pen 0 0 255 2 1
+rosservice call /turtle1/teleport_absolute 8 2 1.57
+
+#draw letter D
+rosservice call /turtle1/set_pen 0 0 255 2 0
+rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[6.0, 0.0, 0.0]' '[0.0, 0.0, 0.0]'
+rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[4.0, 0.0, 0.0]' '[0.0, 0.0, -3.115]'
+rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[6.0, 0.0, 0.0]' '[0.0, 0.0, 0.0]'
+rosservice call /turtle1/set_pen 0 0 255 2 1
+rosservice call /turtle1/teleport_absolute 7.6 2 0
+rosservice call /turtle1/set_pen 0 0 255 2 0
+rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[3.2, 0.0, 0.0]' '[0.0, 0.0, 0.0]'
+rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, -2, 0.0]' '[0.0, 0.0, 0.0]'
+rosservice call /turtle1/set_pen 0 0 255 2 1
+rosservice call /turtle1/teleport_absolute 7.6 2 0
+rosservice call /turtle1/set_pen 0 0 255 2 0
+rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[0.0, -2, 0.0]' '[0.0, 0.0, 0.0]'

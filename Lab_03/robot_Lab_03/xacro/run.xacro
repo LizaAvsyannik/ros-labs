@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="NAME_UNIT" >
+	<xacro:arg name="colors" default="false"/>
+	<xacro:arg name="initial" default="false"/>
+	<xacro:arg name="color_initial" default="false"/>
+	<xacro:property name="rectangle_color">
+		<color rgba = "1 0 0 1.0" />
+	 </xacro:property>
+	 <xacro:property name="cylinder_color">
+		 <color rgba = "0 0 1 1.0" />
+	 </xacro:property>
+	<xacro:property name="k" value="1"/>
+	<xacro:if value="$(arg colors)">
+		<xacro:property name="rectangle_color">
+			<color rgba = "1 1 0 1.0" />
+		</xacro:property>
+		<xacro:property name="cylinder_color">
+			<color rgba = "0 1 1 1.0" />
+		</xacro:property>
+	</xacro:if>
+	<xacro:if value="$(arg color_initial)">
+		<xacro:property name="rectangle_color">
+			<color rgba = "0.3 0.2 0.5 1.0" />
+		</xacro:property>
+		<xacro:property name="cylinder_color">
+			<color rgba = "0.5 0.1 0.9 1.0" />
+		</xacro:property>
+		<xacro:property name="k" value="2" />
+	</xacro:if>
+	<xacro:if value="$(arg initial)">
+		<xacro:property name="k" value="3" />
+	</xacro:if>
+	<xacro:include filename="robot.xacro"/>
+</robot>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="NAME_UNIT" >
+        <xacro:macro name="cylinder" params="link_name r l m">
+                <link name="${link_name}">
+                        <visual>
+                                <origin xyz="0 0 0" rpy="0 0 0"/>
+                                 <geometry>
+                                        <cylinder radius="${r}" length="${l}"/>
+                                </geometry>
+                                <material name="color_cyl">
+                                        <xacro:insert_block name="cylinder_color"/>
+                                </material>
+                        </visual>
+                        <inertial>
+                                <origin xyz="0 0 0" rpy="0 0 0"/>
+                                <mass value="${m}" />
+                                <inertia ixx = "${m*(3*r**2+l**2)/12}" iyy = "${m*(3*r**2+l**2)/12}" izz = "${m*r**2/12}" ixy = "0" ixz = "0" iyz = "0" />
+                        </inertial>
+		</link>
+	</xacro:macro>
+</robot>
