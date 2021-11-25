@@ -379,7 +379,7 @@
   <joint name="monocular_connection" type="fixed">
     <parent link="plate" />
     <child link="monocular_camera" />
-    <origin xyz="-0.65 0 0" rpy="3.1416 3.1416 0" />
+    <origin xyz="-0.65 0 0" rpy="3.14 3.14 0" />
     <axis xyz="0 0 0" />
   </joint>
   <joint name="ultrasonic1_connection" type="fixed">
@@ -560,15 +560,15 @@
     <material>Gazebo/Purple</material>
   </gazebo>
   <gazebo reference="leftwheel">
-    <mu1 value="2.0" />
-    <mu2 value="4.0" />
+    <mu1 value="0.2" />
+    <mu2 value="0.4" />
     <kp value="1000000000" />
     <kd value="1000000.0" />
     <material>Gazebo/Yellow</material>
   </gazebo>
   <gazebo reference="rightwheel">
-    <mu1 value="2.0" />
-    <mu2 value="4.0" />
+    <mu1 value="0.2" />
+    <mu2 value="0.4" />
     <kp value="1000000000" />
     <kd value="1000000.0" />
     <material>Gazebo/Yellow</material>
